@@ -7,7 +7,7 @@ import {
   Menu,
   AlertTriangle,
   Activity,
-  Shield,
+  Shield, Home
 } from 'lucide-react';
 import Link from 'next/link';
 import './Header.css'; // Assuming you have a CSS file for styles
@@ -78,7 +78,10 @@ const Header = () => {
     
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center space-x-3">
-                
+                <NavLink href="/">
+              <Home className="mr-2 h-4 w-4" />
+              Home
+            </NavLink>
                 <NavLink href="/map">
                   <MapPin className="mr-2 h-4 w-4" />
                   Live Crisis Map
