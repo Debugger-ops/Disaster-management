@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import {
   AlertTriangle, Users, MapPin, Phone, Cloud, Activity,
-  Shield, Clock, Heart, Zap
+  Shield, Clock, Heart, Zap, Home
 } from 'lucide-react';
 import { Menu, X } from 'lucide-react';
 
@@ -105,6 +105,10 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, variant = "default" }
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-3">
+            <NavLink href="/">
+              <Home className="mr-2 h-4 w-4" />
+              Home
+            </NavLink>
             <NavLink href="/map">
               <MapPin className="mr-2 h-4 w-4" />
               Live Crisis Map
