@@ -57,11 +57,35 @@ const Volunteer: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Volunteer registration:', formData);
-    alert('Thank you for volunteering! We will contact you soon.');
-  };
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const res = await fetch('/api/volunteer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      alert('Thank you for volunteering! We will contact you soon.');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        location: '',
+        skills: '',
+        availability: '',
+        experience: '',
+      });
+    } else {
+      alert('Submission failed: ' + data.error);
+    }
+  } catch (error) {
+    alert('Error submitting form: ' + (error as Error).message);
+  }
+};
+
 
   return (
     <div className="volunteer-wrapper">
