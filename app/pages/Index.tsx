@@ -231,16 +231,17 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, variant = "default" }
             <div className="lg:col-span-1">
               <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <Zap className="mr-2 h-5 w-5 text-orange-600" />
-                    Quick Actions
+                  <CardTitle className="flex items-center text-xl text-gray-900">
+                    <Zap className=" mr-2 h-5 w-5 text-orange-600" />
+                  Quick Actions
+                    
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <Button asChild className="w-full bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700">
                     <Link href="/report">
-                      <AlertTriangle className="mr-2 h-4 w-4" />
-                      Report Emergency
+                      <AlertTriangle className="qrc mr-2 h-4 w-4" />
+                       Report Emergency
                     </Link>
                   </Button>
                   <Button variant="outline" asChild className="w-full border-blue-200 text-blue-700 hover:bg-blue-50">
@@ -278,13 +279,13 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, variant = "default" }
               <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-between">
-                    <span className="flex items-center text-xl">
+                    <span className="flex items-center text-xl text-gray-900">
                       <Activity className="mr-2 h-5 w-5 text-red-600" />
                       Recent Incidents
                     </span>
                     <Badge className="bg-red-100 text-red-800">Live</Badge>
-                  </CardTitle>
-                  <CardDescription>Real-time emergency response feed</CardDescription>
+                  </CardTitle >
+                  <CardDescription className='text-gray-900'>Real-time emergency response feed</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
