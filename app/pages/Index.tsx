@@ -34,10 +34,10 @@ React.useEffect(() => {
   ];
 
   const emergencyContacts = [
-    { service: "Fire Department", number: "911", available: true },
-    { service: "Police", number: "911", available: true },
-    { service: "Medical Emergency", number: "911", available: true },
-    { service: "Disaster Relief", number: "1-800-RELIEF", available: true },
+    { service: "Fire Department", number: "101", available: true },
+    { service: "Police", number: "100", available: true },
+    { service: "Medical Emergency", number: "112", available: true },
+    { service: "Disaster Relief", number: "1078", available: true },
   ];
 
   const stats = [
