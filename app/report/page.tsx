@@ -66,12 +66,25 @@ const ReportEmergency: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Emergency report:', formData);
-    // Handle form submission here
-    alert('Emergency report submitted! Emergency services have been notified.');
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const res = await fetch('/api/emergency', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const data = await res.json();
+    if (data.success) {
+      alert('Emergency report submitted successfully!');
+    } else {
+      alert('Error: ' + data.error);
+    }
+  } catch (err) {
+    alert('Failed to submit: ' + err);
+  }
+};
+
 
   const emergencyTypes = [
     { value: 'fire', label: 'Fire Emergency', icon: '🔥' },
