@@ -93,12 +93,12 @@ const ReportEmergency: React.FC = () => {
           <AlertTriangle className="banner-icon" />
           <div className="banner-text">
             <h2>Emergency Reporting System</h2>
-            <p>For life-threatening emergencies, call 911 immediately</p>
+            <p>For life-threatening emergencies, call 1078 immediately</p>
           </div>
           <div className="emergency-numbers">
             <div className="emergency-number">
               <Phone className="phone-icon" />
-              <span>911</span>
+              <span>1078</span>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ const ReportEmergency: React.FC = () => {
               <div className="action-buttons">
                 <Button className="action-btn emergency-btn" size="lg">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call 911
+                  Call 1078
                 </Button>
                 <Button className="action-btn medical-btn" variant="outline" size="lg">
                   <Heart className="mr-2 h-5 w-5" />
