@@ -1,19 +1,17 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
+import {
+  Users,
+  Heart,
+  MapPin,
+  Clock,
+  Phone,
+  Mail,
+  User,
+} from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../components/ui/button';
 import './Volunteer.css';
-
-// NavLink helper component
-const NavLink = ({ href, children, variant = 'default' }: any) => (
-  <Link
-    href={href}
-    className={`nav-link ${variant === 'primary' ? 'nav-link-primary' : ''}`}
-  >
-    {children}
-  </Link>
-);
 
 const Volunteer: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -26,15 +24,6 @@ const Volunteer: React.FC = () => {
     experience: '',
   });
 
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -43,39 +32,37 @@ const Volunteer: React.FC = () => {
     }));
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    const res = await fetch('/api/volunteer', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-    if (data.success) {
-      alert('Thank you for volunteering! We will contact you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        location: '',
-        skills: '',
-        availability: '',
-        experience: '',
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('/api/volunteer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    } else {
-      alert('Submission failed: ' + data.error);
-    }
-  } catch (error) {
-    alert('Error submitting form: ' + (error as Error).message);
-  }
-};
 
+      const data = await res.json();
+      if (data.success) {
+        alert('Thank you for volunteering! We will contact you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          location: '',
+          skills: '',
+          availability: '',
+          experience: '',
+        });
+      } else {
+        alert('Submission failed: ' + data.error);
+      }
+    } catch (error) {
+      alert('Error submitting form: ' + (error as Error).message);
+    }
+  };
 
   return (
     <div className="volunteer-wrapper">
-      
       {/* Hero Section */}
       <section className="volunteer-hero">
         <div className="hero-content">
@@ -134,7 +121,7 @@ const Volunteer: React.FC = () => {
               </div>
 
               <div className="requirements">
-                <h3>What We're Looking For</h3>
+                <h3>What We&apos;re Looking For</h3>
                 <ul>
                   <li>Compassionate individuals ready to help in emergencies</li>
                   <li>Basic first aid knowledge (training provided if needed)</li>
@@ -166,7 +153,7 @@ const Volunteer: React.FC = () => {
                   <input type="text" id="location" name="location" value={formData.location} onChange={handleInputChange} required className="form-input" />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="skills">Skills & Expertise</label>
+                  <label htmlFor="skills">Skills &amp; Expertise</label>
                   <textarea id="skills" name="skills" value={formData.skills} onChange={handleInputChange} rows={3} className="form-textarea" placeholder="e.g., First Aid, Medical Training, Construction, IT Support..." />
                 </div>
                 <div className="form-group">
