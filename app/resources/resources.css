@@ -371,7 +371,7 @@ header h1 {
 }
 
 .checklist-item:hover {
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  color: black;
   transform: translateX(5px);
 }
 
